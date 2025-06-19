@@ -1,58 +1,86 @@
-*{
-    font-family:'Nunito', sans-serif;
+/*header Section*/
+ * {
     margin: 0;
+    padding: 0;
+    font-family:'Nunito', sans-serif; 
     box-sizing: border-box;
-    outline:none;
-    border:none;
-    text-decoration:none;
-    text-transform:capitalize;
-    transition:.2s linear;
 }
-html{
-    font-size:90%;
-    overflow-x:hidden;
-    scroll-padding-top:7rem;
-    scroll-behavior:smooth;
-}
-body{
-     background:#d2f5d0; 
-}
-.header{
-  color: #ffffff;
-  flex-direction: column;
-    position:fixed;
-    top:0;left:0;right:0;
+header {
     display: flex;
     background-color: #2f855a;
-    align-items:center;
+    height: 80px;
     justify-content: space-between;
-    padding: 1.5rem 9%;
+    align-items: center;
+    border-bottom: 1px solid #b6b1b1;
 }
-.logo{
-    font-weight:bolder;
-    color:#fff;
-    font-size:2.5rem;
-     display: flex;
+.title{
+  font-size: 30px;
+   font-weight: bold;
+   line-height:1 ;
+   vertical-align: middle;
+   color: black;
+   white-space: nowrap;
+}
+.event_home {
+    height: 70px;
+    width: auto;
+    vertical-align: middle;
+}
+.logo_container {
+    margin-left: 4%;
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+}
+
+.navbar {
+    display: flex;
+    min-width: 500px;
+    justify-content: space-evenly;
+}
+.navbar a {
+    font-size: 14px;
+    letter-spacing: .3px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 28px 0;
+    
+}
+.navbar a:hover {
+    border-bottom: 4px solid #f54e77;
+}
+
+.navbar a sup {
+    color: #ff3f6c;
+    font-size: 10px;
+}
+.search_bar {
+    height: 40px;
+    min-width: 200px;
+    width: 30%;
+    display: flex;
     align-items: center;
 }
-.navbar{
-     margin-top: 10px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     gap: 5px;
-     flex-wrap: wrap;
+.search_icon {
+    box-sizing: content-box;
+    height: 20px;
+    padding: 10px;
+
+    background-color: #f5f5f6;
+    color: #282c3f;
+    font-weight: 300;
+    border-radius: 4px 0 0 4px;
 }
-.navbar a{
-    
-    font-size: 1.5rem;
-    color: #fff;
-     text-decoration: none;
-    font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;  
+.search_input {
+    color: #282c3f;
+    background-color: #f5f5f6;
+    flex-grow: 1;
+    height: 40px;
+    border: 0;
+    border-radius: 0 4px 4px 0;
 }
-.navbar a:hover{
-    color:#48bb78;
-}
+
+
+
