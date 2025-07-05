@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Pranshu Social Event Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="green-bg">
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="22" r="22" fill="#388e3c"/>
+            <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="18" font-family="Segoe UI, Arial" dy=".3em" font-weight="bold">P</text>
+          </svg>
+          <span class="brand-name">Pranshu Events</span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="signup.html" class="active">Sign Up</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <form id="signupForm">
+      <h2>Sign Up</h2>
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Create Account</button>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+      <div id="signupMsg"></div>
+    </form>
+  </main>
+  <footer>
+    <div class="footer-contact">
+      <div>
+        <b>Contact:</b> info@socialeventsystem.org | +977 9812345678
+      </div>
+      <div class="footer-social">
+        <a href="https://instagram.com/yourcommunity" target="_blank" title="Instagram"><img src="insta.svg" alt="Instagram" class="footer-icon"></a>
+        <a href="mailto:info@socialeventsystem.org" title="Gmail"><img src="gmail.svg" alt="Gmail" class="footer-icon"></a>
+        <a href="https://facebook.com/yourcommunity" target="_blank" title="Facebook"><img src="fb.svg" alt="Facebook" class="footer-icon"></a>
+      </div>
+    </div>
+    <p>&copy; 2025 Pranshu Social Event Management System</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
