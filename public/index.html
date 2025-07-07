@@ -3,83 +3,204 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Event Management System</title>
+  <title>BookStore - Your Online Book Destination</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="green-bg">
-  <!-- AI Animated Blobs and Dots for Greenish AI Background -->
-  <div class="ai-blob ai-blob-1"></div>
-  <div class="ai-blob ai-blob-2"></div>
-  <div class="ai-blob ai-blob-3"></div>
-  <div class="ai-dot ai-dot-1"></div>
-  <div class="ai-dot ai-dot-2"></div>
-
-  <header>
-    <nav class="navbar">
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
       <div class="nav-logo">
-        <a href="index.html" class="logo-link">
-          <img src="pranshu-logo.jpg" alt="Pranshu Logo" style="width:44px;height:44px;">
-          <span class="brand-name">Social Event Management System</span>
-        </a>
+        <i class="fas fa-book-open"></i>
+        <span>BookStore</span>
       </div>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <div class="center-content">
-      <section class="hero hero-attractive">
-        <div class="hero-content">
-          <h1>Empowering Communities Through Social Action</h1>
-          <p>Discover and join impactful social events in your community – from volunteering and donations to fundraising and awareness drives.</p>
-          <a class="cta-btn" href="signup.html">Get Started</a>
-        </div>
-        <div class="hero-image">
-          <img src="hero.jpg" alt="Community Event Nepal" />
-        </div>
-      </section>
-      <section class="highlight-events">
-        <h2>All Events</h2>
-        <div id="homeEvents" class="event-list"></div>
-        <div style="text-align:center;margin-top:1rem;">
-          <a href="events.html" class="cta-btn" style="font-size:1rem;padding:0.5rem 1.5rem;">See All Events</a>
-        </div>
-      </section>
-    </div>
-  </main>
-  <footer>
-    <div class="footer-contact">
-      <div>
-        <b>Contact:</b> info@socialeventsystem.org | +977 9812345678
+      <div class="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#books" class="nav-link">Books</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#about" class="nav-link">About</a>
       </div>
-      <div class="footer-social">
-        <a href="https://instagram.com/yourcommunity" target="_blank" title="Instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="footer-icon" style="background:#fff;border-radius:8px;">
-        </a>
-        <a href="mailto:info@socialeventsystem.org" title="Gmail">
-          <img src="gmail.svg" alt="Gmail" class="footer-icon">
-        </a>
-        <a href="https://facebook.com/yourcommunity" target="_blank" title="Facebook">
-          <img src="fb.svg" alt="Facebook" class="footer-icon">
-        </a>
-        <a href="https://twitter.com/" target="_blank" title="Twitter">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" class="footer-icon" style="background:#fff;border-radius:8px;">
-        </a>
-        <a href="tel:+9779812345678" title="Call us">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Phone_font_awesome.svg" alt="Phone" class="footer-icon" style="background:#fff;border-radius:8px;">
-        </a>
-      </div>
-      <div style="margin-top:0.5rem;">
-        <b>Address:</b> Kathmandu, Nepal
+      <div class="nav-actions">
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search books...">
+          <button id="searchBtn"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="user-actions">
+          <button id="cartBtn" class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount" class="cart-count">0</span>
+          </button>
+          <button id="loginBtn" class="auth-btn">Login</button>
+          <button id="signupBtn" class="auth-btn">Sign Up</button>
+          <button id="logoutBtn" class="auth-btn" style="display: none;">Logout</button>
+        </div>
       </div>
     </div>
-    <p>&copy; 2025 Social Event Management System</p>
-  </footer>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Discover Your Next Great Read</h1>
+      <p>Explore thousands of books from classic literature to contemporary bestsellers</p>
+      <button class="cta-btn" onclick="scrollToBooks()">Browse Books</button>
+    </div>
+  </section>
+
+  <!-- Books Section -->
+  <section id="books" class="books-section">
+    <div class="container">
+      <h2>Featured Books</h2>
+      <div class="category-filters">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="fiction">Fiction</button>
+        <button class="filter-btn" data-category="fantasy">Fantasy</button>
+        <button class="filter-btn" data-category="romance">Romance</button>
+      </div>
+      <div id="booksGrid" class="books-grid">
+        <!-- Books will be loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Shopping Cart</h3>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div id="cartItems" class="cart-items">
+          <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-summary">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button id="checkoutBtn" class="checkout-btn">Proceed to Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Login</h3>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" class="auth-form">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+          </div>
+          <button type="submit" class="submit-btn">Login</button>
+        </form>
+        <p class="auth-switch">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Sign Up</h3>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="signupForm" class="auth-form">
+          <div class="form-group">
+            <label for="signupUsername">Username</label>
+            <input type="text" id="signupUsername" required>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" required>
+          </div>
+          <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Checkout</h3>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="checkoutForm" class="checkout-form">
+          <div class="form-group">
+            <label for="checkoutName">Full Name</label>
+            <input type="text" id="checkoutName" required>
+          </div>
+          <div class="form-group">
+            <label for="checkoutEmail">Email</label>
+            <input type="email" id="checkoutEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="checkoutAddress">Shipping Address</label>
+            <textarea id="checkoutAddress" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="checkoutPhone">Phone Number</label>
+            <input type="tel" id="checkoutPhone" required>
+          </div>
+          <div class="order-summary">
+            <h4>Order Summary</h4>
+            <div id="checkoutItems"></div>
+            <div class="order-total">
+              <span>Total:</span>
+              <span id="checkoutTotal">$0.00</span>
+            </div>
+          </div>
+          <button type="submit" class="submit-btn">Complete Purchase</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Order Successful!</h3>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="success-content">
+          <i class="fas fa-check-circle success-icon"></i>
+          <h4>Thank you for your purchase!</h4>
+          <p>Your order has been placed successfully. You will receive a confirmation email shortly.</p>
+          <p>Order ID: <span id="orderId"></span></p>
+          <button class="submit-btn" onclick="closeSuccessModal()">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loadingSpinner" class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
