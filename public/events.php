@@ -368,22 +368,32 @@ try {
             </form>
         </div>
     </div>
-
     <footer>
-        <div class="footer-contact">
-            <div>
-                <b>Contact:</b> info@socialeventsystem.org <br>
-                <b>+977 9812345678</b> 
-            </div>
-            <div class="footer-social">
-                <a href="https://instagram.com/yourcommunity" target="_blank" title="Instagram"><img src="insta.svg" alt="Instagram" class="footer-icon"></a>
-                <a href="mailto:info@socialeventsystem.org" title="Gmail"><img src="gmail.svg" alt="Gmail" class="footer-icon"></a>
-                <a href="https://facebook.com/yourcommunity" target="_blank" title="Facebook"><img src="fb.svg" alt="Facebook" class="footer-icon"></a>
-            </div>
-        </div>
-        <p>&copy; 2025 Pranshu Social Event Management System</p>
-    </footer>
-
+  <div class="footer-contact">
+    <div>
+      <b>Contact:</b> info@socialeventsystem.org | +977 9812345678
+    </div>
+    <div class="footer-social" style="justify-content:center;">
+      <a href="https://instagram.com/yourcommunity" target="_blank" title="Instagram">
+       <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="28">
+      </a>
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" width="28">
+    </a>
+    <a href="https://facebook.com/yourcommunity" target="_blank" title="Facebook">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="28">
+    </a>
+    <a href="https://twitter.com/" target="_blank" title="Twitter">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="28">
+    </a>
+    
+  </div>
+  <div style="margin-top:0.5rem; color: white;">
+      <a href="mailto:info@socialeventsystem.org" title="Gmail" style="color: white;">
+      <b>Address:</b> Kathmandu, Nepal
+    </div>
+  </div>
+  <p>&copy; 2025 Social Event Management System</p>
+</footer>
     <script src="events.js"></script>
 </body>
 </html>

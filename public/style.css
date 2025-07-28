@@ -414,3 +414,84 @@ form button[type="submit"]:disabled {
   font-weight: 500;
   min-height: 1.5rem;
 }
+
+/* Simple Footer Styles */
+.simple-footer {
+  background: #2e7d32;
+  color: white;
+  padding: 1.5rem 0 0.5rem 0;
+  margin-top: auto;
+  box-shadow: 0 -2px 8px #c8e6c9;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 2rem;
+}
+
+.footer-contact h3,
+.footer-social h3 {
+  color: #a5d6a7;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.footer-contact p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-icon {
+  display: inline-block;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.social-icon img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #a5d6a7;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .footer-main {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+}
