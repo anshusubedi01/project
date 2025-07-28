@@ -263,26 +263,26 @@ try {
     </style>
 </head>
 <body class="green-bg">
-    <header>
-        <nav class="navbar">
-            <div class="nav-logo">
-                <a href="index.html" class="logo-link">
-                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-                        <circle cx="22" cy="22" r="22" fill="#388e3c"/>
-                        <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="18" font-family="Segoe UI, Arial" dy=".3em" font-weight="bold">P</text>
-                    </svg>
-                    <span class="brand-name">Pranshu Events</span>
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="events.php" class="active">Events</a></li>
-                <li><a href="signup.php">Sign Up</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="22" r="22" fill="#388e3c"/>
+            <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="18" font-family="Segoe UI, Arial" dy=".3em" font-weight="bold">P</text>
+          </svg>
+          <span class="brand-name">Pranshu Events</span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="about.html" class="nav-item">About</a></li>
+        <li><a href="events.php" class="nav-item active">Events</a></li>
+        <li><a href="signup.php" class="nav-item">Sign Up</a></li>
+        <li><a href="contact.html" class="nav-item">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
     <main>
         <div class="events-container">
@@ -368,22 +368,33 @@ try {
             </form>
         </div>
     </div>
-
-    <footer>
-        <div class="footer-contact">
-            <div>
-                <b>Contact:</b> info@socialeventsystem.org <br>
-                <b>+977 9812345678</b> 
-            </div>
-            <div class="footer-social">
-                <a href="https://instagram.com/yourcommunity" target="_blank" title="Instagram"><img src="insta.svg" alt="Instagram" class="footer-icon"></a>
-                <a href="mailto:info@socialeventsystem.org" title="Gmail"><img src="gmail.svg" alt="Gmail" class="footer-icon"></a>
-                <a href="https://facebook.com/yourcommunity" target="_blank" title="Facebook"><img src="fb.svg" alt="Facebook" class="footer-icon"></a>
-            </div>
-        </div>
-        <p>&copy; 2025 Pranshu Social Event Management System</p>
-    </footer>
-
+  <footer>
+    <div class="footer-contact">
+      <div>
+        <b>Contact:</b> info@socialeventsystem.org | +977 9812345678
+      </div>
+      <div class="footer-social" style="justify-content:center;">
+        <a href="https://instagram.com/yourcommunity" target="_blank" title="Instagram">
+         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="28">
+        </a>
+        <a href="mailto:info@socialeventsystem.org" target="_blank" title="Gmail">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" width="28">
+      </a>
+      <a href="https://facebook.com/yourcommunity" target="_blank" title="Facebook">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="28">
+      </a>
+      <a href="https://twitter.com/" target="_blank" title="Twitter">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="28">
+      </a>
+      
+    </div>
+    <div style="margin-top:0.5rem;">
+        
+        <b>Address:</b> Kathmandu, Nepal
+      </div>
+    </div>
+    <p>&copy; 2025 Social Event Management System</p>
+  </footer>
     <script src="events.js"></script>
 </body>
 </html>

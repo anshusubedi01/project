@@ -178,9 +178,7 @@ if (document.getElementById('homeEvents')) {
       <div class="event-date">${ev.date}</div>
       <div class="event-type">${ev.type}</div>
       <div class="event-desc">${ev.desc}</div>`;
-    if (ev.qr) {
-      html += `<div class="qr"><img src="${ev.qr}" alt="Donation QR" loading="lazy"></div>`;
-    }
+    // Removed QR code rendering as per user request
     html += `</div>`;
   });
   document.getElementById('homeEvents').innerHTML = html;

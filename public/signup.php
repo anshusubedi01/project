@@ -18,7 +18,7 @@ if (!isset($_SESSION['csrf_token'])) {
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="green-bg">
-  <header>
+   <header>
     <nav class="navbar">
       <div class="nav-logo">
         <a href="index.html" class="logo-link">
@@ -30,11 +30,11 @@ if (!isset($_SESSION['csrf_token'])) {
         </a>
       </div>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="events.php">Events</a></li>
-        <li><a href="signup.php" class="active">Sign Up</a></li>
-        <li><a href="login.php">Login</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="about.html" class="nav-item">About</a></li>
+        <li><a href="events.php" class="nav-item">Events</a></li>
+        <li><a href="signup.php" class="nav-item active">Sign Up</a></li>
+        <li><a href="contact.html" class="nav-item">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -62,16 +62,29 @@ if (!isset($_SESSION['csrf_token'])) {
   <footer>
     <div class="footer-contact">
       <div>
-        <b>Contact:</b> info@socialeventsystem.org <br>
-        <b>+977 9812345678</b> 
+        <b>Contact:</b> info@socialeventsystem.org | +977 9812345678
       </div>
-      <div class="footer-social">
-        <a href="https://instagram.com/yourcommunity" target="_blank" title="Instagram"><img src="insta.svg" alt="Instagram" class="footer-icon"></a>
-        <a href="mailto:info@socialeventsystem.org" title="Gmail"><img src="gmail.svg" alt="Gmail" class="footer-icon"></a>
-        <a href="https://facebook.com/yourcommunity" target="_blank" title="Facebook"><img src="fb.svg" alt="Facebook" class="footer-icon"></a>
+      <div class="footer-social" style="justify-content:center;">
+        <a href="https://instagram.com/yourcommunity" target="_blank" title="Instagram">
+         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="28">
+        </a>
+        <a href="mailto:info@socialeventsystem.org" target="_blank" title="Gmail">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" width="28">
+      </a>
+      <a href="https://facebook.com/yourcommunity" target="_blank" title="Facebook">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="28">
+      </a>
+      <a href="https://twitter.com/" target="_blank" title="Twitter">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="28">
+      </a>
+      
+    </div>
+    <div style="margin-top:0.5rem;">
+        
+        <b>Address:</b> Kathmandu, Nepal
       </div>
     </div>
-    <p>&copy; 2025 Pranshu Social Event Management System</p>
+    <p>&copy; 2025 Social Event Management System</p>
   </footer>
   <script src="signup-validation.js"></script>
 </body>
