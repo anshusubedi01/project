@@ -332,6 +332,8 @@ try {
         </div>
     </main>
 
+    
+    
     <!-- Registration Modal -->
     <div id="registrationModal" class="modal">
         <div class="modal-content">
