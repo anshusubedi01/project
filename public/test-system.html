@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test System - Pranshu Social Event Management</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .test-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px #c8e6c9;
+    }
+    .test-section {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+    }
+    .test-section h3 {
+      color: #388e3c;
+      margin-bottom: 1rem;
+    }
+    .test-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .test-links a {
+      padding: 0.75rem 1.5rem;
+      background: #388e3c;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .test-links a:hover {
+      background: #2e7d32;
+    }
+  </style>
+</head>
+<body class="green-bg">
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="22" r="22" fill="#388e3c"/>
+            <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="18" font-family="Segoe UI, Arial" dy=".3em" font-weight="bold">P</text>
+          </svg>
+          <span class="brand-name">Pranshu Events</span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.php">Events</a></li>
+        <li><a href="signup.php">Sign Up</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="test-container">
+      <h1>Complete Signup & Login System Test</h1>
+      
+      <div class="test-section">
+        <h3>🔐 Authentication System Features</h3>
+        <ul>
+          <li><strong>Email Validation:</strong> Uses regex pattern to validate email format</li>
+          <li><strong>Password Validation:</strong> Requires 8+ characters, uppercase, lowercase, number, and special character</li>
+          <li><strong>Confirm Password:</strong> Ensures passwords match</li>
+          <li><strong>Real-time Validation:</strong> Shows errors as user types</li>
+          <li><strong>Server-side Validation:</strong> Double validation on backend</li>
+          <li><strong>CSRF Protection:</strong> Prevents cross-site request forgery</li>
+          <li><strong>Secure Password Hashing:</strong> Uses PHP password_hash()</li>
+          <li><strong>Session Management:</strong> Secure login sessions</li>
+        </ul>
+      </div>
+      
+      <div class="test-section">
+        <h3>📝 Test the Signup System</h3>
+        <p>Try these test scenarios:</p>
+        <ul>
+          <li><strong>Valid Signup:</strong> Username: testuser, Email: test@example.com, Password: TestPass123!</li>
+          <li><strong>Invalid Email:</strong> Try "invalid-email" or "test@"</li>
+          <li><strong>Weak Password:</strong> Try "123" or "password"</li>
+          <li><strong>Mismatched Passwords:</strong> Enter different passwords in confirm field</li>
+          <li><strong>Duplicate Email:</strong> Try registering with the same email twice</li>
+        </ul>
+                 <div class="test-links">
+           <a href="signup.php">Go to Signup Page</a>
+         </div>
+      </div>
+      
+      <div class="test-section">
+        <h3>🔑 Test the Login System</h3>
+        <p>After successful signup, test login:</p>
+        <ul>
+          <li><strong>Valid Login:</strong> Use the email and password from signup</li>
+          <li><strong>Invalid Email:</strong> Try non-existent email</li>
+          <li><strong>Wrong Password:</strong> Try incorrect password</li>
+          <li><strong>Empty Fields:</strong> Try submitting with empty fields</li>
+        </ul>
+                 <div class="test-links">
+           <a href="login.php">Go to Login Page</a>
+         </div>
+      </div>
+      
+      <div class="test-section">
+        <h3>✅ Validation Rules</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <h4>Email Validation:</h4>
+            <ul>
+              <li>Must be valid email format</li>
+              <li>Regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/</li>
+              <li>Examples: user@example.com, test.user@domain.co.uk</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Password Validation:</h4>
+            <ul>
+              <li>Minimum 8 characters</li>
+              <li>At least 1 uppercase letter</li>
+              <li>At least 1 lowercase letter</li>
+              <li>At least 1 number</li>
+              <li>At least 1 special character (@$!%*?&)</li>
+              <li>Regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="test-section">
+        <h3>🚀 Quick Start</h3>
+        <ol>
+          <li>Click "Go to Signup Page"</li>
+          <li>Fill in valid details (follow validation rules)</li>
+          <li>Submit the form</li>
+          <li>You'll be redirected to login page</li>
+          <li>Login with your credentials</li>
+          <li>You'll be redirected to home page</li>
+        </ol>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-contact">
+      <div>
+        <b>Contact:</b> info@socialeventsystem.org <br>
+        <b>+977 9812345678</b> 
+      </div>
+      <div class="footer-social">
+        <a href="https://instagram.com/yourcommunity" target="_blank" title="Instagram"><img src="insta.svg" alt="Instagram" class="footer-icon"></a>
+        <a href="mailto:info@socialeventsystem.org" title="Gmail"><img src="gmail.svg" alt="Gmail" class="footer-icon"></a>
+        <a href="https://facebook.com/yourcommunity" target="_blank" title="Facebook"><img src="fb.svg" alt="Facebook" class="footer-icon"></a>
+      </div>
+    </div>
+    <p>&copy; 2025 Pranshu Social Event Management System</p>
+  </footer>
+</body>
+</html> 

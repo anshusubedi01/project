@@ -1,9 +1,20 @@
+<?php
+// Set session path to ensure consistency
+ini_set('session.cookie_path', '/');
+ini_set('session.cookie_domain', '');
+session_start();
+// Generate CSRF token if not exists
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Pranshu Social Event Management</title>
+  <meta name="csrf-token" content="<?php echo $_SESSION['csrf_token']; ?>">
+  <title>Sign Up - Pranshu Social Event Management</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="green-bg">
@@ -20,21 +31,32 @@
       </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-        <li><a href="login.html" class="active">Login</a></li>
+        <li><a href="events.php">Events</a></li>
+        <li><a href="signup.php" class="active">Sign Up</a></li>
+        <li><a href="login.php">Login</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <form id="loginForm">
-      <h2>Login</h2><br>
-      <input type="email" id="loginEmail" placeholder="Email" required><br>
-      <input type="password" id="loginPassword" placeholder="Password" required><br>
-      <button type="submit">Login</button>
-      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-      <div id="loginMsg"></div>
+    <form id="signupForm">
+      <h2>Sign Up</h2><br>
+      
+      <input type="text" id="username" name="username" placeholder="Username" required><br>
+      <div id="usernameError" class="error-message"></div>
+      
+      <input type="email" id="email" name="email" placeholder="Email" required><br>
+      <div id="emailError" class="error-message"></div>
+      
+      <input type="password" id="password" name="password" placeholder="Password" required><br>
+      <div id="passwordError" class="error-message"></div>
+      
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required><br>
+      <div id="confirmPasswordError" class="error-message"></div>
+      
+      <button type="submit" id="signupBtn">Sign Up</button>
+      <p>Already have an account? <a href="login.php">Login</a></p>
+      <div id="signupMsg"></div>
     </form>
   </main>
   <footer>
@@ -51,6 +73,6 @@
     </div>
     <p>&copy; 2025 Pranshu Social Event Management System</p>
   </footer>
-  <script src="script.js"></script>
+  <script src="signup-validation.js"></script>
 </body>
 </html>

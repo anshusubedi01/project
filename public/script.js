@@ -5,32 +5,94 @@ if (document.getElementById('signupForm')) {
     const username = document.getElementById('username').value.trim();
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
-    let users = JSON.parse(localStorage.getItem('users') || '[]');
-    if (users.find(u => u.email === email)) {
-      document.getElementById('signupMsg').textContent = 'Email already registered!';
+    
+    // Client-side validation
+    if (!username || !email || !password) {
+      document.getElementById('signupMsg').textContent = 'All fields are required!';
       return;
     }
-    users.push({ username, email, password });
-    localStorage.setItem('users', JSON.stringify(users));
+    
+    if (password.length < 6) {
+      document.getElementById('signupMsg').textContent = 'Password must be at least 6 characters!';
+      return;
+    }
+    
+    try {
+      const response = await fetch('backend/register.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, email, password })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
     document.getElementById('signupMsg').textContent = 'Signup successful! You can now login.';
-    setTimeout(() => window.location.href = 'login.html', 1200);
+        setTimeout(() => window.location.href = 'login.php', 1200);
+      } else {
+        document.getElementById('signupMsg').textContent = data.error || 'Signup failed!';
+      }
+    } catch (error) {
+      document.getElementById('signupMsg').textContent = 'Network error. Please try again.';
+    }
   };
 }
 
 // --- User Login ---
 if (document.getElementById('loginForm')) {
-  document.getElementById('loginForm').onsubmit = function(e) {
+  document.getElementById('loginForm').onsubmit = async function(e) {
     e.preventDefault();
+    
+    const loginBtn = document.getElementById('loginBtn');
+    const loginMsg = document.getElementById('loginMsg');
+    
+    // Disable button to prevent double submission
+    loginBtn.disabled = true;
+    loginBtn.textContent = 'Logging in...';
+    
     const email = document.getElementById('loginEmail').value.trim();
     const password = document.getElementById('loginPassword').value;
-    let users = JSON.parse(localStorage.getItem('users') || '[]');
-    const user = users.find(u => u.email === email && u.password === password);
-    if (user) {
-      localStorage.setItem('currentUser', JSON.stringify(user));
-      document.getElementById('loginMsg').textContent = 'Login successful! Redirecting...';
-      setTimeout(() => window.location.href = 'events.html', 1200);
+    
+    // Client-side validation
+    if (!email || !password) {
+      loginMsg.textContent = 'Please fill in all fields!';
+      loginBtn.disabled = false;
+      loginBtn.textContent = 'Login';
+      return;
+    }
+    
+    // Get CSRF token
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    
+    try {
+      const formData = new FormData();
+      formData.append('email', email);
+      formData.append('password', password);
+      formData.append('csrf_token', csrfToken);
+      
+      const response = await fetch('backend/login.php', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        loginMsg.textContent = 'Login successful! Redirecting...';
+        loginMsg.style.color = 'green';
+        setTimeout(() => window.location.href = 'events.php', 1200);
     } else {
-      document.getElementById('loginMsg').textContent = 'Invalid email or password!';
+        loginMsg.textContent = data.error || 'Login failed!';
+        loginMsg.style.color = 'red';
+      }
+    } catch (error) {
+      loginMsg.textContent = 'Network error. Please try again.';
+      loginMsg.style.color = 'red';
+    } finally {
+      loginBtn.disabled = false;
+      loginBtn.textContent = 'Login';
     }
   };
 }
@@ -80,6 +142,8 @@ const defaultEvents = [
     img: 'event5.jpg'
   }
 ];
+
+// Initialize events in localStorage only if not exists
 if (!localStorage.getItem('events')) {
   localStorage.setItem('events', JSON.stringify(defaultEvents));
 }
@@ -90,31 +154,32 @@ if (document.getElementById('eventList')) {
   let html = '';
   events.forEach(ev => {
     html += `<div class="event-card">
-      <img src="${ev.img}" alt="${ev.title}">
+      <img src="${ev.img}" alt="${ev.title}" loading="lazy">
       <h4>${ev.title}</h4>
       <div class="event-date">${ev.date}</div>
       <div class="event-type">${ev.type}</div>
       <div class="event-desc">${ev.desc}</div>`;
     if (ev.qr) {
-      html += `<div class="qr"><img src="${ev.qr}" alt="Donation QR"></div>`;
+      html += `<div class="qr"><img src="${ev.qr}" alt="Donation QR" loading="lazy"></div>`;
     }
     html += `<button onclick="registerEvent(${ev.id})">Register</button></div>`;
   });
   document.getElementById('eventList').innerHTML = html;
 }
+
 // --- Load Featured Events (Home Page) ---
 if (document.getElementById('homeEvents')) {
   const events = JSON.parse(localStorage.getItem('events'));
   let html = '';
   events.slice(0, 3).forEach(ev => { // Only show the first 3 events
     html += `<div class="event-card">
-      <img src="${ev.img}" alt="${ev.title}">
+      <img src="${ev.img}" alt="${ev.title}" loading="lazy">
       <h4>${ev.title}</h4>
       <div class="event-date">${ev.date}</div>
       <div class="event-type">${ev.type}</div>
       <div class="event-desc">${ev.desc}</div>`;
     if (ev.qr) {
-      html += `<div class="qr"><img src="${ev.qr}" alt="Donation QR"></div>`;
+      html += `<div class="qr"><img src="${ev.qr}" alt="Donation QR" loading="lazy"></div>`;
     }
     html += `</div>`;
   });
@@ -122,19 +187,32 @@ if (document.getElementById('homeEvents')) {
 }
 
 // --- Register for Event ---
-window.registerEvent = function(eventId) {
-  const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
-  if (!user) {
+window.registerEvent = async function(eventId) {
+  try {
+    const response = await fetch('backend/check_auth.php');
+    const data = await response.json();
+    
+    if (!data.logged_in) {
     alert('Please login to register for events.');
-    window.location.href = 'login.html';
+      window.location.href = 'login.php';
     return;
   }
-  let registrations = JSON.parse(localStorage.getItem('registrations') || '[]');
-  if (registrations.find(r => r.eventId === eventId && r.email === user.email)) {
+    
+    // Check if already registered
+    const registrations = JSON.parse(localStorage.getItem('registrations') || '[]');
+    if (registrations.find(r => r.eventId === eventId && r.email === data.email)) {
     alert('You have already registered for this event!');
     return;
   }
-  registrations.push({ eventId, email: user.email });
+    
+    // Register for event
+    registrations.push({ eventId, email: data.email });
   localStorage.setItem('registrations', JSON.stringify(registrations));
   alert('Registered successfully for this event!');
+  } catch (error) {
+    alert('Error registering for event. Please try again.');
+  }
 };
+
+
+  
