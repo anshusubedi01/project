@@ -267,11 +267,8 @@ try {
     <nav class="navbar">
       <div class="nav-logo">
         <a href="index.html" class="logo-link">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-            <circle cx="22" cy="22" r="22" fill="#388e3c"/>
-            <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="18" font-family="Segoe UI, Arial" dy=".3em" font-weight="bold">P</text>
-          </svg>
-          <span class="brand-name">Pranshu Events</span>
+          <img src="logopic.jpg" alt="logo"height="70px" weidth="70px">
+          <span class="brand-name">Pranshu Social Events Management</span>
         </a>
       </div>
       <ul class="nav-links">
@@ -279,6 +276,7 @@ try {
         <li><a href="about.html" class="nav-item">About</a></li>
         <li><a href="events.php" class="nav-item active">Events</a></li>
         <li><a href="signup.php" class="nav-item">Sign Up</a></li>
+        <li><a href="login.php" class="nav-item">Login</a></li>
         <li><a href="contact.html" class="nav-item">Contact</a></li>
       </ul>
     </nav>
