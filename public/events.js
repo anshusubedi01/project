@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update modal title
         document.getElementById('modalEventTitle').textContent = `Register for: ${eventTitle}`;
+
     };
     
     window.closeRegistrationModal = function() {
@@ -156,4 +157,4 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('registrationMsg').style.color = 'red';
         });
     });
-}); 
+});
