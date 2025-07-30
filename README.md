@@ -1,5 +1,4 @@
 # Pranshu Social Event Management System
-
 A complete social event management system with user registration, event management, and admin panel. Built with PHP, MySQL, and JavaScript with a beautiful greenish design theme.
 
 ## 🚀 Features
@@ -195,29 +194,6 @@ project/
 - **CSRF Protection**: Token-based protection
 - **Cookie Security**: Secure cookie settings
 
-## 🐛 Troubleshooting
-
-### **Common Issues:**
-
-1. **Database Connection Error**
-   - Ensure MySQL is running in XAMPP
-   - Check database credentials in `dbconnect.php`
-   - Verify database exists
-
-2. **Session Issues**
-   - Ensure PHP sessions are enabled
-   - Check file permissions
-   - Clear browser cache
-
-3. **Image Loading Issues**
-   - Ensure event images exist in public folder
-   - Check file paths in database
-
-4. **Admin Access Issues**
-   - Verify admin credentials
-   - Check session variables
-   - Ensure admin table has data
-
 ## 📝 API Endpoints
 
 ### **User Endpoints:**
@@ -232,26 +208,8 @@ project/
 - `GET /admin-login.php` - Admin login page
 - `GET /admin-logout.php` - Admin logout
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
 ## 📞 Support
 
 For support, email: info@socialeventsystem.org
 
 ---
-
-**Note**: This is a complete working system. Make sure to:
-1. Import the database schema first
-2. Test all user flows
-3. Verify admin functionality
-4. Check all validations work properly
